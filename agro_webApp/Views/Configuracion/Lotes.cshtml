@@ -1,0 +1,96 @@
+﻿@model IEnumerable<agro_webApp.Models.lotes>
+@{
+    ViewBag.Title = "Lotes";
+}
+
+		<!-- Page content -->
+<div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Tasks options -->
+        <div class="navbar navbar-default navbar-xs navbar-component">
+            <ul class="nav navbar-nav no-border visible-xs-block">
+                <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-filter"><i class="icon-menu7"></i></a></li>
+            </ul>
+            <div class="navbar-collapse collapse" id="navbar-filter">
+                <p class="navbar-text">Filtros:</p>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort position-left"></i> Por prioridad <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mostrar todos</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Alta</a></li>
+                            <li><a href="#">Media</a></li>
+                            <li><a href="#">Baja</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <!-- /tasks options -->
+        <!-- Tasks grid -->
+        <div class="text-center content-group text-muted content-divider">
+            <span class="pt-10 pb-10">Agregar nuevo lote</span>
+        </div>
+        <div class="row">
+            <!-- INICIA LOTES -->
+            
+
+                @foreach (var item in Model)
+
+                {
+            <div class="col-md-6">
+                <div class="panel border-left-lg border-left-primary">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6 class="no-margin-top"><a href="#">#@item.codigo. @item.nombre</a></h6>
+                                <p class="mb-15">@item.descripcion</p>
+                               
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="list task-details">
+                                    <li>Extension: @item.extension</li>
+                                    @if (item.prioridad == "Baja")
+                                    {
+                                        <li>Prioridad:  <a href="#" class="label label-success">@item.prioridad</a></li>
+                                    }
+                                    else if (item.prioridad == "Media")
+                                    {
+                                        <li>Prioridad:  <a href="#" class="label label-primary">@item.prioridad</a></li>
+                                    }
+                                    else if (item.prioridad == "Alta")
+                                    {
+                                        <li>Prioridad:  <a href="#" class="label label-danger">@item.prioridad</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+
+                        <ul class="pull-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i> <span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#"><i class="icon-pencil7"></i> Editar</a></li>
+                                    <li><a href="#"><i class="icon-cross2"></i> Eliminar</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                }
+            <!-- FINALIZA LOTES -->
+        </div>
+        <!-- /tasks grid -->
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /page content -->

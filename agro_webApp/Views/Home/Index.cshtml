@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+        <!-- Page content -->
+<div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Main charts -->
+        <div class="row">
+            <div class="col-lg-6">
+
+                <!-- Panel 1 -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Panel 1</h6>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <ul class="list-inline text-center">
+                                    <li>
+                                        <a href="#" class="btn border-teal text-teal btn-flat btn-rounded btn-icon btn-xs valign-text-bottom"><i class="icon-plus3"></i></a>
+                                    </li>
+                                    <li class="text-left">
+                                        <div class="text-semibold">Nuevo algo</div>
+                                        <div class="text-muted">texto</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /Panel 1 -->
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <!-- Sales stats -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Estadística semanal</h6>
+                        <div class="heading-elements">
+                            <form class="heading-form" action="#">
+                                <div class="form-group">
+                                    <select class="change-date select-sm" id="select_date">
+                                        <optgroup label="Semana">
+                                            <option value="val3" selected="selected">Noviembre, 28 - Diciembre, 4</option>
+                                            <option value="val4">Diciembre, 5 - Diciembre, 11</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <div class="content-group">
+                                    <h5 class="text-semibold no-margin"><i class="icon-cash3 position-left text-slate"></i> $0.00</h5>
+                                    <span class="text-muted text-size-small">Ingresos</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="content-group">
+                                    <h5 class="text-semibold no-margin"><i class="icon-cash3 position-left text-slate"></i> $0.00</h5>
+                                    <span class="text-muted text-size-small">Egresos</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="content-group">
+                                    <h5 class="text-semibold no-margin"><i class="icon-cash3 position-left text-success icon-arrow-up12"></i> $0.00 <i class="icon-arrow-down12 text-danger"></i> </h5>
+                                    <span class="text-muted text-size-small">Ganancia/Perdida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-group-sm" id="app_sales"></div>
+                    <div id="monthly-sales-stats"></div>
+                </div>
+                <!-- /sales stats -->
+
+            </div>
+        </div>
+        <!-- /main charts -->
+        <!-- Dashboard content -->
+        <!-- /dashboard content -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /page content -->

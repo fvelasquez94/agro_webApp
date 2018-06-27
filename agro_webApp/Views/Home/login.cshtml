@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<!-- Page content -->
+<div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Advanced login -->
+
+        <div class="panel panel-body login-form">
+            <div class="text-center">
+                <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+                <h5> <small class="display-block">Tus datos</small></h5>
+            </div>
+
+            @using (Html.BeginForm("iniciarSesion", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <input type="text" class="form-control" name="correo" placeholder="Correo">
+                </div>
+                <div class="form-group">
+
+                    <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn bg-blue btn-block">Iniciar sesión <i class="icon-arrow-right14 position-right"></i></button>
+                </div>
+            }
+
+            <div class="content-divider text-muted form-group"><span>Aún no tienes una cuenta?</span></div>
+            <a href='@Url.Action("Signup", "Home")' class="btn btn-default btn-block content-group">Registrate</a>
+        </div>
+
+        <!-- /advanced login -->
+
+    </div>
+    <!-- /main content -->
+
+</div>
+<!-- /page content -->

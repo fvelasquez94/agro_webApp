@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="agro_appModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="datos_Usuario">
+          <Key>
+            <PropertyRef Name="id_datos" />
+          </Key>
+          <Property Name="id_datos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Nombre_completo" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="profesion_oficio" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="finca">
+          <Key>
+            <PropertyRef Name="id_Finca" />
+          </Key>
+          <Property Name="id_Finca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="descripcion" Type="text" Nullable="false" />
+          <Property Name="extension" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lotes">
+          <Key>
+            <PropertyRef Name="id_Lote" />
+          </Key>
+          <Property Name="id_Lote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="extension" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_Finca" Type="int" Nullable="false" />
+          <Property Name="prioridad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_Usuario">
+          <Key>
+            <PropertyRef Name="id_Tipo" />
+          </Key>
+          <Property Name="id_Tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_cuenta" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_Tipo" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__datos_Usu__id_Us__1A14E395">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="datos_Usuario" Type="Self.datos_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_Usuario" />
+            </Principal>
+            <Dependent Role="datos_Usuario">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__finca__id_Usuari__2F10007B">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="finca" Type="Self.finca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_Usuario" />
+            </Principal>
+            <Dependent Role="finca">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__lotes__id_Finca__31EC6D26">
+          <End Role="finca" Type="Self.finca" Multiplicity="1" />
+          <End Role="lotes" Type="Self.lotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="finca">
+              <PropertyRef Name="id_Finca" />
+            </Principal>
+            <Dependent Role="lotes">
+              <PropertyRef Name="id_Finca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuarios__id_Tip__173876EA">
+          <End Role="tipo_Usuario" Type="Self.tipo_Usuario" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_Usuario">
+              <PropertyRef Name="id_Tipo" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="agro_appModelStoreContainer">
+          <EntitySet Name="datos_Usuario" EntityType="Self.datos_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="finca" EntityType="Self.finca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lotes" EntityType="Self.lotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_Usuario" EntityType="Self.tipo_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__datos_Usu__id_Us__1A14E395" Association="Self.FK__datos_Usu__id_Us__1A14E395">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="datos_Usuario" EntitySet="datos_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__finca__id_Usuari__2F10007B" Association="Self.FK__finca__id_Usuari__2F10007B">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="finca" EntitySet="finca" />
+          </AssociationSet>
+          <AssociationSet Name="FK__lotes__id_Finca__31EC6D26" Association="Self.FK__lotes__id_Finca__31EC6D26">
+            <End Role="finca" EntitySet="finca" />
+            <End Role="lotes" EntitySet="lotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuarios__id_Tip__173876EA" Association="Self.FK__usuarios__id_Tip__173876EA">
+            <End Role="tipo_Usuario" EntitySet="tipo_Usuario" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="agro_appModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="datos_Usuario">
+          <Key>
+            <PropertyRef Name="id_datos" />
+          </Key>
+          <Property Name="id_datos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_completo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profesion_oficio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__datos_Usu__id_Us__1A14E395" FromRole="datos_Usuario" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="finca">
+          <Key>
+            <PropertyRef Name="id_Finca" />
+          </Key>
+          <Property Name="id_Finca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_Usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__finca__id_Usuari__2F10007B" FromRole="finca" ToRole="usuarios" />
+          <NavigationProperty Name="lotes" Relationship="Self.FK__lotes__id_Finca__31EC6D26" FromRole="finca" ToRole="lotes" />
+        </EntityType>
+        <EntityType Name="lotes">
+          <Key>
+            <PropertyRef Name="id_Lote" />
+          </Key>
+          <Property Name="id_Lote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_Finca" Type="Int32" Nullable="false" />
+          <Property Name="prioridad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="finca" Relationship="Self.FK__lotes__id_Finca__31EC6D26" FromRole="lotes" ToRole="finca" />
+        </EntityType>
+        <EntityType Name="tipo_Usuario">
+          <Key>
+            <PropertyRef Name="id_Tipo" />
+          </Key>
+          <Property Name="id_Tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_cuenta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__usuarios__id_Tip__173876EA" FromRole="tipo_Usuario" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_Tipo" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="datos_Usuario" Relationship="Self.FK__datos_Usu__id_Us__1A14E395" FromRole="usuarios" ToRole="datos_Usuario" />
+          <NavigationProperty Name="finca" Relationship="Self.FK__finca__id_Usuari__2F10007B" FromRole="usuarios" ToRole="finca" />
+          <NavigationProperty Name="tipo_Usuario" Relationship="Self.FK__usuarios__id_Tip__173876EA" FromRole="usuarios" ToRole="tipo_Usuario" />
+        </EntityType>
+        <Association Name="FK__datos_Usu__id_Us__1A14E395">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="datos_Usuario" Type="Self.datos_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_Usuario" />
+            </Principal>
+            <Dependent Role="datos_Usuario">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__finca__id_Usuari__2F10007B">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="finca" Type="Self.finca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="id_Usuario" />
+            </Principal>
+            <Dependent Role="finca">
+              <PropertyRef Name="id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__lotes__id_Finca__31EC6D26">
+          <End Role="finca" Type="Self.finca" Multiplicity="1" />
+          <End Role="lotes" Type="Self.lotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="finca">
+              <PropertyRef Name="id_Finca" />
+            </Principal>
+            <Dependent Role="lotes">
+              <PropertyRef Name="id_Finca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuarios__id_Tip__173876EA">
+          <End Role="tipo_Usuario" Type="Self.tipo_Usuario" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_Usuario">
+              <PropertyRef Name="id_Tipo" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="agro_appEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="datos_Usuario" EntityType="Self.datos_Usuario" />
+          <EntitySet Name="finca" EntityType="Self.finca" />
+          <EntitySet Name="lotes" EntityType="Self.lotes" />
+          <EntitySet Name="tipo_Usuario" EntityType="Self.tipo_Usuario" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK__datos_Usu__id_Us__1A14E395" Association="Self.FK__datos_Usu__id_Us__1A14E395">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="datos_Usuario" EntitySet="datos_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__finca__id_Usuari__2F10007B" Association="Self.FK__finca__id_Usuari__2F10007B">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="finca" EntitySet="finca" />
+          </AssociationSet>
+          <AssociationSet Name="FK__lotes__id_Finca__31EC6D26" Association="Self.FK__lotes__id_Finca__31EC6D26">
+            <End Role="finca" EntitySet="finca" />
+            <End Role="lotes" EntitySet="lotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuarios__id_Tip__173876EA" Association="Self.FK__usuarios__id_Tip__173876EA">
+            <End Role="tipo_Usuario" EntitySet="tipo_Usuario" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="agro_appModelStoreContainer" CdmEntityContainer="agro_appEntities">
+          <EntitySetMapping Name="datos_Usuario">
+            <EntityTypeMapping TypeName="agro_appModel.datos_Usuario">
+              <MappingFragment StoreEntitySet="datos_Usuario">
+                <ScalarProperty Name="id_datos" ColumnName="id_datos" />
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="Nombre_completo" ColumnName="Nombre_completo" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="profesion_oficio" ColumnName="profesion_oficio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="finca">
+            <EntityTypeMapping TypeName="agro_appModel.finca">
+              <MappingFragment StoreEntitySet="finca">
+                <ScalarProperty Name="id_Finca" ColumnName="id_Finca" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lotes">
+            <EntityTypeMapping TypeName="agro_appModel.lotes">
+              <MappingFragment StoreEntitySet="lotes">
+                <ScalarProperty Name="id_Lote" ColumnName="id_Lote" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="id_Finca" ColumnName="id_Finca" />
+                <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_Usuario">
+            <EntityTypeMapping TypeName="agro_appModel.tipo_Usuario">
+              <MappingFragment StoreEntitySet="tipo_Usuario">
+                <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="descripcion_cuenta" ColumnName="descripcion_cuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="agro_appModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="id_Tipo" ColumnName="id_Tipo" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

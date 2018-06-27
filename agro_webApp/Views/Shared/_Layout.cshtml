@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!--head -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Farm Management</title>
+
+    <!-- Global stylesheets -->
+    @Html.Partial("~/Views/Shared/Styles.cshtml")
+    <!-- /Global stylesheets -->
+    <!-- Core JS files -->
+    @Html.Partial("~/Views/Shared/Scripts.cshtml")
+    <!-- /Core JS files d-->
+
+
+</head>
+
+<!--/head-->
+<body>
+    @if (ViewBag.Title == "Iniciar sesión" || ViewBag.Title == "Registrarse")
+    {
+        <!-- Main navbar -->
+        <div class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img src="/images/logo_light.png" alt=""></a>
+
+                <ul class="nav navbar-nav pull-right visible-xs-block">
+                    <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-mobile">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Ir a sitio de creador</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Soporte</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-cog3"></i>
+                            <span class="visible-xs-inline-block position-right"> Opciones</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+	<!-- /main navbar -->
+        <!-- Page container -->
+        <div class="page-container login-container">
+
+            @RenderBody()
+            <!-- Footer -->
+            <div class="footer text-muted">
+                &copy; 2017. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
+            </div>
+            <!-- /footer -->
+
+        </div>
+    <!-- /page container -->
+    }
+    else
+    {
+    <!--menu-->
+    Html.RenderPartial("Menu_principal");
+    <!--/menu-->
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4>
+
+                    <span class="text-semibold">@ViewBag.modulo</span> - @ViewBag.seccion
+                    <small class="display-block">@Session["nombre_finca"]</small>
+                </h4>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- /page header -->
+
+        <!-- Page container -->
+        <div class="page-container">
+
+            @RenderBody()
+            <!-- Footer -->
+            <div class="footer text-muted">
+                &copy; 2016. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
+            </div>
+            <!-- /footer -->
+
+        </div>
+    <!-- /page container -->
+    }
+    
+
+</body>
+</html>

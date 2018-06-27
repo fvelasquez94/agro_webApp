@@ -1,0 +1,71 @@
+﻿@model agro_webApp.Models.finca
+
+@{ 
+    ViewBag.Title = "Datos";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_Finca)
+    @Html.HiddenFor(model => model.id_Usuario)
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend><i class="icon-file-text position-left"></i> Descripcion</legend>
+
+                        <div class="form-group">
+                            <label>Nombre de la finca:</label>
+                            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control text-semibold" } })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descripcion:</label>
+                            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend class="text-semibold"><i class="icon-map5 position-left"></i> Ubicacion y extension</legend>
+
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label>Direccion:</label>
+                                    @Html.EditorFor(model => model.ubicacion, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Extension:</label>
+                                    @Html.EditorFor(model => model.extension, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Actualizar datos<i class="icon-floppy-disk position-right"></i></button>
+            </div>
+        </div>
+    </div>
+}
+
+

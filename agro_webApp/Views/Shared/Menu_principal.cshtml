@@ -1,0 +1,346 @@
+﻿	<!-- Main navbar -->
+
+<div class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><img src="~/Content/images/logo_light.png" alt=""></a>
+
+        <ul class="nav navbar-nav pull-right visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-home"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-git-compare"></i>
+                    <span class="visible-xs-inline-block position-right">Actividades reciente</span>
+                    <!--<span class="badge bg-warning-400">1</span>-->
+                </a>
+
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-heading">
+                        Actividades reciente
+                        <ul class="icons-list">
+                            <li><a href="#"><i class="icon-sync"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <ul class="media-list dropdown-content-body width-350">
+                        <li class="media">
+                            <div class="media-left">
+                                <a href="#" class="btn border-warning text-warning btn-flat btn-rounded btn-icon btn-sm"><i class="icon-git-commit"></i></a>
+                            </div>
+
+                            <div class="media-body">
+                                Actividad de prueba
+                                <div class="media-annotation">0 minutes ago</div>
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+
+                    <div class="dropdown-content-footer">
+                        <a href="#" data-popup="tooltip" title="Todas las actividades"><i class="icon-menu display-block"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-bubbles4"></i>
+                    <span class="visible-xs-inline-block position-right">Mensajes</span>
+                    <!--Para mensajes<span class="badge bg-warning-400">1</span>-->
+                </a>
+
+                <div class="dropdown-menu dropdown-content width-350">
+                    <div class="dropdown-content-heading">
+                        Mensajes
+                        <ul class="icons-list">
+                            <li><a href="#"><i class="icon-compose"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <ul class="media-list dropdown-content-body">
+                        <li class="media">
+                            <div class="media-left">
+                                <!---<img src="~/Content/images/placeholder.jpg" class="img-circle img-sm" alt="">-->
+                                <span class="badge bg-danger-400 media-badge">1</span>
+                            </div>
+
+                            <div class="media-body">
+                                <a href="#" class="media-heading">
+                                    <span class="text-semibold">Usuario x</span>
+                                    <span class="media-annotation pull-right">04:58</span>
+                                </a>
+
+                                <span class="text-muted">Hola queria saber...</span>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+                    <div class="dropdown-content-footer">
+                        <a href="#" data-popup="tooltip" title="Todos los mensajes"><i class="icon-menu display-block"></i></a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown dropdown-user">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="~/Content/images/ui/farmer.png" alt="">
+                    <span> @Session["nombre_usuario"]</span>
+                    <i class="caret"></i>
+
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="#"><i class="icon-user-plus"></i> Perfil</a></li>
+                    <li><a href="#"><i class="icon-coins"></i> Balance</a></li>
+                    <li><a href="#"><!--<span class="badge badge-warning pull-right">1</span>--> <i class="icon-comment-discussion"></i> Mensajes</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="icon-cog5"></i> Configuración</a></li>
+                    <li><a href='@Url.Action("cerrarSesion", "Home")'><i class="icon-switch2"></i> Salir</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /main navbar -->
+<!-- Second navbar -->
+<div class="navbar navbar-default" id="navbar-second">
+    <ul class="nav navbar-nav no-border visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+    </ul>
+
+    <div class="navbar-collapse collapse" id="navbar-second-toggle">
+        <ul class="nav navbar-nav">
+            <li class="dropdown mega-menu mega-menu-wide">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/images/ui/scarecrow.png" height="32" width="32"> Administración <span class="caret"></span></a>
+
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Finca</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href='@Url.Action("Index", "Home")'> Inicio</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Configuración</a>
+                                        <ul>
+                                            <li><a href='@Url.Action("Lotes", "Configuracion")'>Lotes</a></li>
+                                            <li><a href='@Url.Action("DatosFinca", "Configuracion")'>Datos de la finca</a></li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Recursos humanos</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Planillas</a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">CRM(Gestión de Servicio al Cliente)</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Compras</a>
+                                        <ul>
+                                            <li><a href="#">Proveedores</a></li>
+                                            <li><a href="#">Ordenes de compras</a></li>
+                                            <li><a href="#">Compras</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Ventas</a>
+                                        <ul>
+                                            <li><a href="#"> Prospectos y clientes</a></li>
+                                            <li><a href="#"> Productos y servicios</a></li>
+                                            <li><a href="#"> Pedidos</a></li>
+                                            <li><a href="#"> Facturación</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Movimiento de inventario</a>
+                                        <ul>
+                                            <li><a href="#"> Control de entradas y salidas</a></li>
+                                            <li><a href="#"> Transferencias entre bodegas(Multibodegas)</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Reportes</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Financieros</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Operativos</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown mega-menu mega-menu-wide">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/images/ui/field.png" height="32" width="32"> Producción agrícola <span class="caret"></span></a>
+
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Cultivos</span>
+                                <ul class="menu-list">
+                                        <li>
+                                            <a href="#"> Café</a>
+                                            <ul>
+                                                <li><a href="#"> Inicio</a></li>
+                                                <li><a href="#">Diagnóstico de actividades</a></li>
+                                                <li>
+                                                    <a href="#"> Plan de acción</a>
+                                                    <ul>
+                                                        <li><a href="#"> Manejo de tejidos</a></li>
+                                                        <li><a href="#"> Establecimiento de semilleros y viveros</a></li>
+                                                        <li><a href="#"> Fertilización</a></li>
+                                                        <li><a href="#"> Control de roya</a></li>
+                                                        <li><a href="#"> Resiembra o renovación</a></li>
+                                                        <li><a href="#"> Obras de conservación de suelos</a></li>
+                                                        <li><a href="#"> Control de malezas</a></li>
+                                                        <li><a href="#"> Control de broca</a></li>
+                                                        <li><a href="#"> Uso seguro de agroquímicos</a></li>
+                                                        <li><a href="#"> Manejo de desechos</a></li>
+                                                        <li><a href="#"> Certificaciones</a></li>
+                                                        <li><a href="#"> MIPE manejo integrado de plagas y enfermedades</a></li>
+                                                        <li><a href="#"> Manejo de sombra</a></li>                      
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#"> Diagnóstico productivo</a></li>
+                                            </ul>
+                                        </li>
+                                    
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Granja</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Ganadería</a>
+                                        <ul>
+                                            <li><a href="#">Lácteos</a></li>
+                                            <li><a href="#">Destazo</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Avicultura</a>
+                                        <ul>
+                                            <li><a href="#">Huevos</a></li>
+                                            <li><a href="#">Destazo</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Forestal</span>
+                                <ul class="menu-list">
+                                    <li><a href="#"> Aprovechamiento de árboles</a></li>
+                                    <li><a href="#"> Control forestal</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">General</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Abonos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Otros</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown mega-menu mega-menu-wide">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/images/ui/barn.png" height="32" width="32"> Inventario <span class="caret"></span></a>
+
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Bodegas </span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Bodega principal</a>
+                                        <ul>
+                                            <li><a href="layout_navbar_fixed.html">Insumos</a></li>
+                                            <li><a href="layout_navbar_hideable.html">Materiales</a></li>
+                                            <li><a href="layout_sidebar_sticky_custom.html">Producto terminado</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-muted"><div class="text-muted">Nueva bodega</div></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Maquinaria y equipo </span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Equipo de trabajo</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Maquinaria industrial</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="dropdown mega-menu mega-menu-wide">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="~/Content/images/ui/map-location.png" height="32" width="32"> Ubicación <span class="caret"></span></a>
+                <div class="dropdown-menu dropdown-content">
+                    <div class="dropdown-content-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="menu-heading underlined">Terreno</span>
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#"> Ubicación catastral</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Manejo de parcelas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /second navbar -->

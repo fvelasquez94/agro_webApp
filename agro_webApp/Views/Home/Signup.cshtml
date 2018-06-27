@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<!-- Page content -->
+<div class="page-content">
+
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Wizard with validation -->
+        <div class="panel panel-white">
+            <div class="panel-heading">
+                <h6 class="panel-title">Registro</h6>
+
+            </div>
+@using (Html.BeginForm("Create", "usuarios", FormMethod.Post, new { @class = "stepy-validation" }))
+{
+    @Html.AntiForgeryToken()
+                <fieldset>
+                    <legend class="text-semibold">Información personal</legend>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ubicación: <span class="text-danger">*</span></label>
+                                <select id="pais" name="pais" data-placeholder="Seleccione región" class="select required">
+                                    <option></option>
+                                    <optgroup label="Norte America">
+                                        <option value="Estados Unidos">Estados Unidos</option>
+                                        <option value="Canadá">Canadá</option>
+                                    </optgroup>
+
+                                    <optgroup label="America Latina">
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="México">México</option>
+                                        <option value="Panamá">Panamá</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Profesión/oficio: <span class="text-danger">*</span></label>
+                                <select id="profesion_oficio" name="profesion_oficio" data-placeholder="Seleccione profesión/oficio" class="select required">
+                                    <option></option>
+                                    <optgroup label="Profesión">
+                                        <option value="Ingeniero Agrónomo">Ingeniero Agrónomo</option>
+                                        <option value="Técnico en Agronomía">Técnico en Agronomía</option>
+
+                                    </optgroup>
+
+                                    <optgroup label="Oficio">
+                                        <option value="Estudiante">Estudiante</option>
+                                        <option value="Agricultor">Agricultor</option>
+                                        <option value="Particular">Particular</option>
+                                    </optgroup>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombre completo: <span class="text-danger">*</span></label>
+                                <input type="text" name="nombre_completo" id="nombre_completo" class="form-control required" placeholder="Ej. Juan Pérez">
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Fecha de nacimiento:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                            <input type="text" class="form-control daterange-single" name="fecha_nacimiento" id="fecha_nacimiento">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Correo: <span class="text-danger">*</span></label>
+                                <input type="email" id="correo" name="correo" class="form-control required" placeholder="Ej. tudireccion@email.com">
+                            
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña: <span class="text-danger">*</span></label>
+                                <input type="password" id="contrasena" name="contrasena" class="form-control required" placeholder="">
+                            
+                            </div>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+                <fieldset>
+                    <legend class="text-semibold">Finca</legend>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombre de la propiedad: <span class="text-danger">*</span></label>
+                                <input type="text" name="nombreFinca" placeholder="Ej. Mi finca" class="form-control required">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ubicación: </label>
+                                <input type="text" name="ubicacion" placeholder="Ej. Cantón La Labor..." class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Extensión(especificar unidad de medida): </label>
+                                <input type="text" name="extension" placeholder="5 Mz, 2 Hectareas, 1 metro cuadrado" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Descripción:</label>
+                                <textarea name="descripcion" rows="4" cols="4" placeholder="Aqui puedes poner una pequeña descripción de tu propiedad y sus usos" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset >
+                    <legend class="text-semibold">Comienza!</legend>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">                          
+                                    <label>Tipo de cuenta: <span class="text-danger">*</span></label>
+                                    <select id="id_Tipo" name="id_Tipo" data-placeholder="Seleccione tipo de cuenta" class="select required">
+                                        <option></option>
+                                        <optgroup label="Tipo de cuenta">
+                                            <option value="1">Básica</option>
+                                            <option value="2">Agrícola</option>
+                                            <option value="2">Mercadeo</option>
+                                        </optgroup>
+                                    </select>    
+         
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn btn-primary stepy-finish">Registrar <i class="icon-check position-right"></i></button>
+  
+}
+        </div>
+        <!-- /wizard with validation -->
+
+    </div>
+    <!-- /content-wrapper-->
+
+</div>
+<!-- /page content -->
