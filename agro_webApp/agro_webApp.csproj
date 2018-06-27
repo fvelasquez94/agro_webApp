@@ -205,7 +205,7 @@
     <Content Include="Content\css\extras\animate.min.css" />
     <Content Include="Content\css\icons\fontawesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\icons\fontawesome\styles.min.css" />
-    <Content Include="Content\css\icons\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\css\icons\glyphicons\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\icons\icomoon\fonts\icomoon.svg" />
     <Content Include="Content\css\icons\icomoon\styles.css" />
     <Content Include="Content\css\main_page\bootstrap.css" />
@@ -253,7 +253,6 @@
     <Content Include="Content\images\ui\wheelbarrow.png" />
     <Content Include="Content\images\ui\wood.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1623,19 +1622,16 @@
     <Folder Include="Views\usuarios\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Content\css\icons\fontawesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\css\icons\fontawesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\css\icons\fontawesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\css\icons\fontawesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\css\icons\fontawesome\fonts\FontAwesome.otf" />
-    <Content Include="Content\css\icons\glyphicons\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\css\icons\glyphicons\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\css\icons\glyphicons\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\css\icons\glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\css\css\icons\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\css\icons\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\css\icons\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\css\css\icons\glyphicons\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\css\icons\icomoon\fonts\icomoon.eot" />
     <Content Include="Content\css\icons\icomoon\fonts\icomoon.ttf" />
     <Content Include="Content\css\icons\icomoon\fonts\icomoon.woff" />

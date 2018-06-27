@@ -54,40 +54,40 @@
                 </ul>
             </div>
         </div>
-	<!-- /main navbar -->
+        <!-- /main navbar -->
         <!-- Page container -->
         <div class="page-container login-container">
 
             @RenderBody()
             <!-- Footer -->
             <div class="footer text-muted">
-                &copy; 2017. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
+                &copy; 2018. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
             </div>
             <!-- /footer -->
 
         </div>
-    <!-- /page container -->
+        <!-- /page container -->
     }
     else
     {
-    <!--menu-->
-    Html.RenderPartial("Menu_principal");
-    <!--/menu-->
-    <!-- Page header -->
-    <div class="page-header">
-        <div class="page-header-content">
-            <div class="page-title">
-                <h4>
+        <!--menu-->
+        Html.RenderPartial("Menu_principal");
+        <!--/menu-->
+        <!-- Page header -->
+        <div class="page-header">
+            <div class="page-header-content">
+                <div class="page-title">
+                    <h4>
 
-                    <span class="text-semibold">@ViewBag.modulo</span> - @ViewBag.seccion
-                    <small class="display-block">@Session["nombre_finca"]</small>
-                </h4>
+                        <span class="text-semibold">@ViewBag.modulo</span> - @ViewBag.seccion
+                        <small class="display-block">@Session["nombre_finca"]</small>
+                    </h4>
+                </div>
+
+
             </div>
-
-
         </div>
-    </div>
-    <!-- /page header -->
+        <!-- /page header -->
 
         <!-- Page container -->
         <div class="page-container">
@@ -95,14 +95,128 @@
             @RenderBody()
             <!-- Footer -->
             <div class="footer text-muted">
-                &copy; 2016. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
+                &copy; 2018. <a href="#">Agro App</a> por <a href="#" target="_blank">Francisco Velásquez</a>
             </div>
             <!-- /footer -->
 
         </div>
-    <!-- /page container -->
+        <!-- /page container -->
     }
-    
+
 
 </body>
 </html>
+
+
+@if (TempData["error"] != null)
+
+{
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+
+            new PNotify({
+
+                title: "Error",
+
+                text: "@(TempData["error"])",
+
+                type: "error"
+
+            })
+
+        };
+
+    </script>
+
+}
+
+
+
+
+
+@if (TempData["advertencia"] != null)
+
+{
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+
+            new PNotify({
+
+                title: "Warning",
+
+                text: "@(TempData["advertencia"])",
+
+                type: "notice"
+
+            })
+
+        };
+
+    </script>
+
+}
+
+
+
+
+
+@if (TempData["exito"] != null)
+
+{
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+
+            new PNotify({
+
+                title: "Success",
+
+                text: "@(TempData["exito"])",
+
+                type: "success"
+
+            })
+
+        };
+
+    </script>
+
+}
+@if (TempData["info"] != null)
+
+{
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+
+
+            new PNotify({
+
+                title: "Informacion",
+
+                text: "@(TempData["info"])",
+
+                icon: "glyphicon glyphicon-info-sign",
+
+                type: "info"
+
+            })
+
+        };
+
+    </script>
+
+}

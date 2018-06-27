@@ -27,8 +27,13 @@ namespace agro_webApp.Controllers
 
                 ViewBag.modulo = "Administracion";
                 ViewBag.seccion = "Lotes";
-                var lotes = db.lotes.Where(x => x.id_Finca == IDfinca).Include(l => l.finca);
-                return View(lotes.ToList());
+                var lotes = db.lotes.Where(x => x.id_Finca == IDfinca).Include(l => l.finca).ToList();
+
+                if (lotes.Count == 0) {
+                    TempData["info"] = "Al parecer no tienes creado ningun lote.";
+                }
+
+                return View(lotes);
             }
 
 
